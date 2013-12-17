@@ -1,0 +1,31 @@
+Instalar e Executar o Banco de Dados
+
+1 - Baixar o Fuseki
+'''
+ wget https://repository.apache.org/content/repositories/snapshots/org/apache/jena/jena-fuseki/1.0.1-SNAPSHOT/jena-fuseki-1.0.1-20131216.082308-66-distribution.tar.gz}
+'''
+
+2 - Unzip
+'''
+tar -zxvf jena-fuseki-1.0.1-20131216.082308-66-distribution.tar.gz
+'''
+
+3 - Ir para pasta
+'''
+cd jena-fuseki-1.0.1-SNAPSHOT/
+'''
+
+4 - Dar permição
+'''
+chmod +x ./fuseki-server s-*
+'''
+
+5 - Criar pasta para o banco
+'''
+mkdir DB
+'''
+
+6 - Iniciar o banco
+'''
+./fuseki-server --update --loc=DB /tripod
+'''

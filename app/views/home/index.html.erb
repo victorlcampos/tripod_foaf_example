@@ -1,0 +1,43 @@
+<blockquote style='text-align: center;'>The Friend of a Friend (FOAF) project is creating a Web of machine-readable pages describing people, the links between them and the things they create and do; it is a contribution to the linked information system known as the Web. FOAF defines an open, decentralized technology for connecting social Web sites, and the people they describe.<cite>Foaf Project</cite></blockquote>
+
+<div style='text-align: center;'>
+<% if current_user%>
+  <h2>Endpoint</h2>
+
+  <%= form_tag('http://localhost:3030/tripod/query') do %>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Query</label>
+        <%= text_area_tag :query %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Formato</label>
+        <%= select_tag "output", options_for_select([ "text", "json", "xml" ], "xml") %>
+      </div>
+    </div>
+    <%= submit_tag 'Executar', class: 'button radius' %>
+  <% end %>
+
+  <h2>Meu FOAF</h2>
+  <%= form_tag('http://localhost:3030/tripod/query') do %>
+    <div class="row" style='display:none'>
+      <div class="large-12 columns">
+        <label>Query</label>
+        <%= text_area_tag :query, "CONSTRUCT {<http://example.com/#{current_user.uid}> ?p ?o} WHERE { GRAPH <http://xmlns.com/foaf/0.1/people> { <http://example.com/#{current_user.uid}> ?p ?o } }" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Formato</label>
+        <%= select_tag "output", options_for_select([ "text", "json", "xml" ], "xml") %>
+      </div>
+    </div>
+    <%= submit_tag 'Baixar meu RDF', class: 'button radius' %>
+  <% end %>
+
+<% else %>
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: 'button radius' %>
+<% end %>
+</div>
