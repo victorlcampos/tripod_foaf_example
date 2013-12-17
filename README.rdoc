@@ -2,7 +2,7 @@ Instalar e Executar o Banco de Dados
 
 1 - Baixar o Fuseki
 
-wget https://repository.apache.org/content/repositories/snapshots/org/apache/jena/jena-fuseki/1.0.1-SNAPSHOT/jena-fuseki-1.0.1-20131216.082308-66-distribution.tar.gz}
+wget https://repository.apache.org/content/repositories/snapshots/org/apache/jena/jena-fuseki/1.0.1-SNAPSHOT/jena-fuseki-1.0.1-20131216.082308-66-distribution.tar.gz
 
 2 - Unzip
 
